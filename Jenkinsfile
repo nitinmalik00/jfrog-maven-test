@@ -1,4 +1,4 @@
-node('jenkins-slave34') {
+node('deb7-mvn3-gradle2-java8-pyth27') {
    stage 'Stage 1'
    		echo 'Hello World 1'
    stage 'Stage 2'
