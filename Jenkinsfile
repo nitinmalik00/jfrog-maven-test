@@ -1,5 +1,5 @@
 node('deb7-mvn3-gradle2-java8-pyth27') {
-   checkout scm
+   //checkout scm
    stage 'Stage 1'
    		echo 'Hello World 1'
    stage 'Stage 2'
