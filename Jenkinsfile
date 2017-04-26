@@ -2,8 +2,8 @@ node('deb7-mvn3-gradle2-java8-pyth27') {
    //checkout scm
    properties([
   parameters([
-    string(name: 'submodule', defaultValue: ''),
-    string(name: 'submodule_branch', defaultValue: ''),
+    string(name: 'submodule', defaultValue: 'value'),
+    string(name: 'submodule_branch', defaultValue: 'value'),
     string(name: 'commit_sha', defaultValue: ''),
   ])
 ])
