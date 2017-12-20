@@ -3,7 +3,6 @@ node('deb7-mvn3-gradle2-java8-pyth27') {
    stage 'Stage 1'
          sh("ls -l")
          sh("pwd")
-         sh("ls -l /var/lib/jenkins/workspace/buildinfra_demo_multibranchPipeline/")
    		echo 'Hello World 1'
          input message: 'Proceed?'
          echo 'after proceed'
