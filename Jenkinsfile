@@ -1,13 +1,10 @@
 node('deb7-mvn3-gradle2-java8-pyth27') {
    //checkout scm
-   stage 'Stage 1'
-         sh("ls -l")
-         sh("pwd")
-   		echo 'Hello World 1'
-         input message: 'Proceed?'
-         echo 'after proceed'
+   stage 'Checkout SCM'
+         sh("git clone https://cd253f8587fa5ebcf0000fb33b09791b57506a33@github.fkinternal.com/Flipkart/buildinfra_jenkins_pipeline_demo_cloud.git")
+         sh("ls")   		
    stage 'Stage 2'
-   		echo 'Hello World 2'
+   		echo 'Stage 2'
    stage 'Last stage'
    		echo 'This is last stage'
 }
