@@ -1,0 +1,19 @@
+kind: Pipeline
+apiVersion: flow-v1-beta
+spec:
+  id: 453
+  description: To trigger buildinfra_jenkins_pipeline_demo_cloud_old jobs
+  event_type: pull
+  trigger_phrase: run test
+  trigger: true
+  arguments:
+    parameters:
+      - name: jira
+        value: ''
+        type: parameter
+      - name: pr
+        value: ''
+        type: parameter
+      - name: "git_clone_ref\t"
+        value: master
+        type: parameter
