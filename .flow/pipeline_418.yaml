@@ -5,7 +5,7 @@ spec:
   id: 418
   event_type: pull
   trigger:
-    enable: false
+    enable: true
     source_branch: ""
     commit_message: ""
     pr_title: ""
