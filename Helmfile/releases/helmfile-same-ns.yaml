@@ -8,6 +8,6 @@ helmDefaults:
 
 releases:
 - name: flow-sample-api-{{ .Environment.Name }}
-  chart: charts/flow-api
+  chart: charts/flow-sample-api
   values:
   - charts/flow-sample-api/values-{{ .Environment.Name }}.yaml
