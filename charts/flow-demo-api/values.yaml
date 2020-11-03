@@ -1,0 +1,41 @@
+# Default values for flow-api-dep.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+env: stage
+metadata:
+  name: flow-k8-demo-backend
+  namespace: ci-cd-demo
+config:
+  workflow:
+    url: ""
+appId: flow-svc-stage
+group: flow-orc-stage-1
+
+doNotDeleteVip: "true"
+
+image:
+  k8HelmDemo:
+    registry: 10.24.6.41:80
+    repository: flow-demo-image
+    tag: v2
+    pullPolicy: Always
+    bucket: ""
+containerPort: 8080
+
+service:
+  type: ClusterIP
+  port: 80
+
+resources: {}
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #  cpu: 100m
+  #  memory: 128Mi
+  # requests:
+  #  cpu: 100m
+#  memory: 128Mi - Demo
