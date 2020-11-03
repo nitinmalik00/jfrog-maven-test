@@ -1,0 +1,6 @@
+environments:
+  stage:
+  production:
+# Ordered list of releases.
+helmfiles:
+  - "releases/helmfile-same-ns.yaml"
