@@ -1,0 +1,44 @@
+# Default values for flow-api-dep.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+env: stage
+metadata:
+  name: flow-sample-api
+  namespace: flow-svc-stage
+  labels:
+    cdlabel: helmRelease
+
+config:
+  workflow:
+    url: "asfe"
+
+doNotDeleteVip: "true"
+configBucket: flow-api-stage
+appId: flow-svc-stage
+group: flow-orc-stage-1
+image:
+  registry: 10.47.2.76:80
+  repository: flow-stage
+  tag: july-stage.1
+  pullPolicy: Always
+containerPort: 12001
+
+service:
+  type: ClusterIP
+  port: 80
+conf:
+  cluster: flow_api_mtl
+
+resources: {}
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #  cpu: 100m
+  #  memory: 128Mi
+  # requests:
+  #  cpu: 100m
+  #  memory: 128Mi
