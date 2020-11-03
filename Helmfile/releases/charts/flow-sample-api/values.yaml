@@ -3,33 +3,30 @@
 # Declare variables to be passed into your templates.
 
 replicaCount: 1
-env: stage
+env: prod
 metadata:
-  name: flow-sample-api
-  namespace: flow-svc-stage
-  labels:
-    cdlabel: helmRelease
-
+  name: flow-k8-demo-backend
+  namespace: ci-cd-demo
 config:
   workflow:
-    url: "asfe"
+    url: ""
+appId: flow-svc-prod
+group: flow-orc-prod-1
 
 doNotDeleteVip: "true"
-configBucket: flow-api-stage
-appId: flow-svc-stage
-group: flow-orc-stage-1
+
 image:
-  registry: 10.47.2.76:80
-  repository: flow-stage
-  tag: july-stage.1
-  pullPolicy: Always
+  k8HelmDemo:
+    registry: 10.24.6.41:80
+    repository: kubernetes-helm-hello-world-docker
+    tag: v2
+    pullPolicy: Always
+    bucket: ""
 containerPort: 12001
 
 service:
   type: ClusterIP
   port: 80
-conf:
-  cluster: flow_api_mtl
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
