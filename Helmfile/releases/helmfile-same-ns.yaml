@@ -1,0 +1,13 @@
+environments:
+  stage:
+  production:
+
+helmDefaults:
+  atomic: false
+  cleanupOnFail: true
+
+releases:
+- name: flow-sample-api-{{ .Environment.Name }}
+  chart: charts/flow-api
+  values:
+  - charts/flow-sample-api/values-{{ .Environment.Name }}.yaml
