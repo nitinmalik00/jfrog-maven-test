@@ -5,7 +5,7 @@
 replicaCount: 1
 env: stage
 metadata:
-  name: flow-k8-demo-backend
+  name: flow-demo-backend
   namespace: ci-cd-demo
 config:
   workflow:
