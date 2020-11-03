@@ -1,0 +1,47 @@
+---
+# https://confluence.fkinternal.com/display/ALM/ConfD+Integration
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.metadata.name }}
+  namespace: {{ .Values.metadata.namespace }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Values.metadata.name }}
+      fcp/appid: {{ .Values.appId }}
+      fcp/zone: in-hyderabad-1
+      fcp/group: {{ .Values.group }}
+  template:
+    metadata:
+      namespace: {{ .Values.metadata.namespace }}
+      labels:
+        app: {{ .Values.metadata.name }}
+        fcp/appid: {{ .Values.appId }}
+        fcp/zone: in-hyderabad-1
+        fcp/group: {{ .Values.group }}
+      annotations:
+        fcp.k8s.mtl/mtl-config-map: {{ .Values.metadata.name }}
+        fcp.k8s.mtl/cosmos-statsd: enabled
+        fcp.k8s.mtl/cosmos-tail: enabled
+        checksum/config: {{ include (print $.Template.BasePath "/config-map-static.yaml") . | sha256sum }}
+    spec:
+      containers:
+        {{ if eq .Values.image.k8HelmDemo.bucket "" }}
+        - image: {{ .Values.image.k8HelmDemo.registry }}/{{ .Values.image.k8HelmDemo.repository }}:{{ .Values.image.k8HelmDemo.tag }}
+        {{ else }}
+        - image: {{ .Values.image.k8HelmDemo.registry }}/{{ .Values.image.k8HelmDemo.bucket }}/{{ .Values.image.k8HelmDemo.repository }}:{{ .Values.image.k8HelmDemo.tag }}
+        {{ end }}
+          name: {{ .Values.metadata.name }}
+          ports:
+            - containerPort: {{ .Values.containerPort}}
+          securityContext:
+            runAsUser: 0
+          resources:
+            requests:
+              memory: "256Mi"
+              cpu: "100m"
+            limits:
+              memory: "256Mi"
+              cpu: "100m"
