@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Values.metadata.name }}
+  namespace: {{ .Values.metadata.namespace }}
+data:
+  {{ .Values.metadata.name }}-config.yaml: |+
+     server:
+       listenAddr: ":{{ .Values.containerPort }}"
+       timeout: 60s
+       secret: $TEST_SECRET
+  cosmos-statsd.conf: |
+     [statsite]
+     udp_port = 8125
+     flush_interval = 60
+     timer_eps = 0.01
+     set_eps = 0.02
+     extended_counters = true
+     quantiles = 0.5, 0.75, 0.8, 0.9, 0.95, 0.98, 0.99
+  cosmos-tail.yml: |
+     application: "website"
+     file: "/var/log/nginx/access.log.{yyyy-MM-dd}"
+     statusCodePosition: 5
+     responseTimePosition: 6
+     sizePosition: 7
+     multiplier: 1
+     role: "app"
+     ignoreUrls: /healthcheck,/healthcheck1
+     requestLinePosition: 5
