@@ -1,0 +1,27 @@
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.metadata.name }}
+  namespace: {{ .Values.metadata.namespace }}
+  annotations:
+    fcp/app-id: "{{ .Values.appId }}"
+    elb.fcp/name: "vip-k8s-{{ .Values.metadata.namespace }}-{{ .Values.metadata.name }}-1"
+    elb.fcp/frontend-port: "80"
+    elb.fcp/backend-port: "{{ .Values.containerPort}}"
+    elb.fcp/do-not-delete-vip: "{{ .Values.doNotDeleteVip }}"
+    elb.fcp/health-check-port: "{{ .Values.containerPort}}"
+    elb.fcp/health-check-path: "/ping"
+    elb.fcp/health-check-timeout: 1s
+    elb.fcp/health-check-interval: 5s
+    elb.fcp/load-balancing-algorithm: "leastconn"
+spec:
+  ports:
+    - name: http
+      port: {{ .Values.containerPort}}
+      protocol: TCP
+      targetPort: {{ .Values.containerPort}}
+  selector:
+    app: {{ .Values.metadata.name }}
+  type: LoadBalancer
