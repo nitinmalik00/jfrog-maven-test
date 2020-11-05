@@ -12,7 +12,7 @@ metadata:
     elb.fcp/backend-port: "{{ .Values.containerPort}}"
     elb.fcp/do-not-delete-vip: "{{ .Values.doNotDeleteVip }}"
     elb.fcp/health-check-port: "{{ .Values.containerPort}}"
-    elb.fcp/health-check-path: "/ping"
+    elb.fcp/health-check-path: "/greeting"
     elb.fcp/health-check-timeout: 1s
     elb.fcp/health-check-interval: 5s
     elb.fcp/load-balancing-algorithm: "leastconn"
