@@ -2,7 +2,7 @@ apiVersion: flow-v1
 kind: Pipeline
 spec:
   pipeline_type: DEPLOY
-  id: 588
+  id: 590
   event_type: merge
   trigger:
     enable: true
