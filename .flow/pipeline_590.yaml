@@ -20,10 +20,10 @@ spec:
       value: ""
       type: parameter
     - name: FlowDcCandidates
-      value: []
+      value: [313]
       type: deploy_candidate_image
     - name: Helm_Chart
-      value: 1
+      value: 314
       type: deploy_candidate_helm_chart
     artifacts: []
 deployparams:
