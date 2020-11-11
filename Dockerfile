@@ -4,3 +4,4 @@ USER root
 WORKDIR /app
 COPY ./target/rest-service-0.0.1-SNAPSHOT.jar .
 CMD java -jar /app/rest-service-0.0.1-SNAPSHOT.jar
+
