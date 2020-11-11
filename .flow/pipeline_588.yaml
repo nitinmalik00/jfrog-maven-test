@@ -10,7 +10,7 @@ spec:
     commit_message: Build*
     pr_title: \z..
     modified_files: '*.java'
-    pr_comment: \z..
+    pr_comment: run again
   arguments:
     parameters:
     - name: jira
@@ -23,7 +23,7 @@ spec:
       value: master
       type: parameter
     - name: pushHelmChart
-      value: "yes"
+      value: '["yes","no"]'
       type: choice_parameter
     artifacts: []
 deployparams:
