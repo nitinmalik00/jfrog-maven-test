@@ -14,7 +14,7 @@ spec:
   arguments:
     parameters:
     - name: jira
-      value: "123"
+      value: "test"
       type: parameter
     - name: pr
       value: ""
