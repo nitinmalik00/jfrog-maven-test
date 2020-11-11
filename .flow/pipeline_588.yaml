@@ -2,10 +2,10 @@ apiVersion: flow-v1
 kind: Pipeline
 spec:
   pipeline_type: BUILD
-  id: 418
+  id: 588
   event_type: pull
   trigger:
-    enable: false
+    enable: true
     source_branch: stage*
     commit_message: Build*
     pr_title: \z..
@@ -23,7 +23,7 @@ spec:
       value: master
       type: parameter
     - name: pushHelmChart
-      value: '["yes","no"]'
+      value: "yes"
       type: choice_parameter
     artifacts: []
 deployparams:
@@ -31,6 +31,6 @@ deployparams:
   env_name: ""
   env_id: 0
   cluster_context_id: 0
-  registry_id: 19
+  registry_id: 31
   cluster_provider: ""
   deploystrategy: null
