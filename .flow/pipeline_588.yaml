@@ -23,8 +23,8 @@ spec:
       value: master
       type: parameter
     - name: pushHelmChart
-      value: "yes"
-      type: parameter
+      value: '["yes","no"]'
+      type: choice_parameter
     artifacts: []
 deployparams:
   env_type: ""
