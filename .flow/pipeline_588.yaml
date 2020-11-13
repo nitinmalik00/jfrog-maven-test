@@ -5,11 +5,11 @@ spec:
   id: 588
   event_type: pull
   trigger:
-    enable: false
+    enable: true
     source_branch: '*'
-    commit_message: Build*
-    pr_title: \z...
-    modified_files: '*.*'
+    commit_message: ""
+    pr_title: ""
+    modified_files: ""
     pr_comment: run again
   arguments:
     parameters:
