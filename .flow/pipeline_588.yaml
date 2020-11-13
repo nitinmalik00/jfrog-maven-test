@@ -9,7 +9,7 @@ spec:
     source_branch: '*'
     commit_message: Build*
     pr_title: \z...
-    modified_files: '*.test'
+    modified_files: '*.*'
     pr_comment: run again
   arguments:
     parameters:
