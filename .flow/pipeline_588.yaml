@@ -6,7 +6,7 @@ spec:
   event_type: pull
   trigger:
     enable: true
-    source_branch: .stage*
+    source_branch: stage*
     commit_message: Build
     pr_title: \z..
     modified_files: \z..
@@ -23,7 +23,7 @@ spec:
       value: master
       type: parameter
     - name: pushHelmChart
-      value: yes
+      value: '["yes","no"]'
       type: choice_parameter
     artifacts: []
 deployparams:
