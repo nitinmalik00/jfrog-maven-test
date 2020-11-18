@@ -20,7 +20,7 @@ spec:
       value: ""
       type: parameter
     - name: FlowDcCandidates
-      value: "[321]"
+      value: "[350]"
       type: deploy_candidate_image
     - name: Helm_Chart
       value: "320"
