@@ -5,7 +5,7 @@ spec:
   id: 588
   event_type: pull
   trigger:
-    enable: false
+    enable: true
     source_branch: stage.*
     commit_message: Build
     pr_title: \z..
