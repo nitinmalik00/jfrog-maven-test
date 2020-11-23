@@ -5,8 +5,8 @@ spec:
   id: 588
   event_type: pull
   trigger:
-    enable: true
-    source_branch: stage*
+    enable: false
+    source_branch: stage.*
     commit_message: Build
     pr_title: \z..
     modified_files: \z..
@@ -22,9 +22,6 @@ spec:
     - name: git_clone_ref
       value: master
       type: parameter
-    - name: pushHelmChart
-      value: yes
-      type: choice_parameter
     artifacts: []
 deployparams:
   env_type: ""
