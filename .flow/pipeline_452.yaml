@@ -2,15 +2,15 @@ apiVersion: flow-v1
 kind: Pipeline
 spec:
   pipeline_type: BUILD
-  id: 588
+  id: 452
   event_type: pull
   trigger:
     enable: true
-    source_branch: stage.*
-    commit_message: Build
-    pr_title: \z..
-    modified_files: \z..
-    pr_comment: run again
+    source_branch: stage*
+    commit_message: build
+    pr_title: build
+    modified_files: '*.*'
+    pr_comment: build
   arguments:
     parameters:
     - name: jira
@@ -22,12 +22,15 @@ spec:
     - name: git_clone_ref
       value: master
       type: parameter
+    - name: pushHelmChart
+      value: '["yes","no"]'
+      type: choice_parameter
     artifacts: []
 deployparams:
   env_type: ""
   env_name: ""
   env_id: 0
   cluster_context_id: 0
-  registry_id: 31
+  registry_id: 19
   cluster_provider: ""
   deploystrategy: null
