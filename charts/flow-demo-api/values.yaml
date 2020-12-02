@@ -6,10 +6,7 @@ replicaCount: 1
 env: stage
 metadata:
   name: flow-demo-backend
-  namespace: ci-cd-demo
-config:
-  workflow:
-    url: ""
+
 appId: flow-svc-stage
 group: flow-orc-stage-1
 
@@ -28,6 +25,10 @@ service:
   type: ClusterIP
   port: 80
 
+application:
+  config:
+    path: /config/server.yaml
+    parameter: chart-test
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
   # choice for the user. This also increases chances charts run on environments with little
