@@ -13,9 +13,9 @@ doNotDeleteVip: "true"
 
 image:
   k8HelmDemo:
-    registry: 10.24.6.41:80
-    repository: flow-demo-image
-    tag: v2
+    registry: container-registry.alm.fkcloud.in
+    repository: build-infra_tm-flow/flow-demo-image
+    tag: 460d5aed4adfdcac69104de276c62dfa50638086
     pullPolicy: Always
     bucket: ""
 containerPort: 8080

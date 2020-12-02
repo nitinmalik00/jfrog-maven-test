@@ -25,9 +25,9 @@ spec:
         checksum/config: {{ include (print $.Template.BasePath "/config-map-static.yaml") . | sha256sum }}
     spec:
       volumes:
-        - name: {{ .Values.name }}-config
+        - name: {{ .Values.name }}
           configMap:
-            name: {{ .Values.name }}-config
+            name: {{ .Values.name }}
       containers:
         {{ if eq .Values.image.k8HelmDemo.bucket "" }}
         - image: {{ .Values.image.k8HelmDemo.registry }}/{{ .Values.image.k8HelmDemo.repository }}:{{ .Values.image.k8HelmDemo.tag }}
@@ -43,7 +43,7 @@ spec:
             - name: SERVER_CONFIG
               value: {{ .Values.application.config.path }}
           volumeMounts:
-            - name: {{ .Values.name }}-config
+            - name: {{ .Values.name }}
               mountPath: {{ .Values.application.config.path }}
               subPath: {{ .Values.name }}.properties
               readOnly: true
