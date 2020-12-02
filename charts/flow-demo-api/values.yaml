@@ -4,8 +4,7 @@
 
 replicaCount: 1
 env: stage
-metadata:
-  name: flow-demo-backend
+name: flow-demo-backend
 
 appId: flow-svc-stage
 group: flow-orc-stage-1
