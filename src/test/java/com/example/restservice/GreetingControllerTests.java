@@ -39,13 +39,10 @@ import java.util.Properties;
 @AutoConfigureMockMvc
 @ContextConfiguration(classes = GreetingController.class)
 public class GreetingControllerTests {
-	@Mock
-	Environment env;
 
 	@Autowired
 	private MockMvc mockMvc;
 
-/*
 
 	@Test
 	public void noParamGreetingShouldReturnDefaultMessage() throws Exception {
@@ -54,21 +51,12 @@ public class GreetingControllerTests {
 				.andExpect(jsonPath("$.content").value("Hello V24, World!"));
 	}
 
-	@BeforeAll
-	public static void init() {
-		Properties p = new Properties();
-		p.setProperty("SERVER_CONFIG", "/Test");
-		System.setProperties(p);
-	}
-
 	@Test
 	public void paramGreetingShouldReturnTailoredMessage() throws Exception {
-		when(this.env.getProperty("SERVER_CONFIG")).thenReturn("/Test");
 
 		this.mockMvc.perform(get("/greeting").param("name", "Spring Community"))
 				.andDo(print()).andExpect(status().isOk())
 				.andExpect(jsonPath("$.content").value("Hello V24, Spring Community!"));
 	}
-*/
 
 }

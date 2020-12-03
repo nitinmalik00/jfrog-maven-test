@@ -29,7 +29,6 @@ public class Greeting {
 		return "Greeting{" +
 				"id=" + id +
 				", content='" + content + '\'' +
-				", staticConfig='" + staticConfig + '\'' +
 				'}';
 	}
 }

@@ -35,6 +35,12 @@ spec:
         - image: {{ .Values.image.k8HelmDemo.registry }}/{{ .Values.image.k8HelmDemo.bucket }}/{{ .Values.image.k8HelmDemo.repository }}:{{ .Values.image.k8HelmDemo.tag }}
         {{ end }}
           name: {{ .Values.name }}
+          args:
+            - /bin/bash
+            - -c
+            - |-
+              "java -jar /app/rest-service-0.0.1-SNAPSHOT.jar \
+              --spring.config.location=file:{{ .Values.application.config.path }}"
           ports:
             - containerPort: {{ .Values.containerPort}}
           securityContext:
