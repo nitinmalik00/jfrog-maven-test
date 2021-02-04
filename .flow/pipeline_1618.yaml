@@ -6,7 +6,7 @@ spec:
   event_type: pull
   trigger:
     enable: true
-    source_branch: '*/sonar-pr-test'
+    source_branch: /*sonar-pr-test
     commit_message: ""
     pr_title: ""
     modified_files: ""
