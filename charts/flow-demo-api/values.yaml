@@ -15,7 +15,7 @@ image:
   k8HelmDemo:
     registry: container-registry.alm.fkcloud.in
     repository: build-infra_tm-flow/flow-demo-image
-    tag: 460d5aed4adfdcac69104de276c62dfa50638086
+    tag: a613fa20002303990d3838ffbe0bb21dda5c8c75
     pullPolicy: Always
     bucket: ""
 containerPort: 8080
@@ -26,7 +26,7 @@ service:
 
 application:
   config:
-    path: /config/server.yaml
+    path: /config/application.properties
     parameter: chart-test
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
