@@ -5,7 +5,7 @@ spec:
   id: 452
   event_type: pull
   trigger:
-    enable: true
+    enable: false
     source_branch: stage*
     commit_message: .*
     pr_title: .*
