@@ -20,10 +20,10 @@ spec:
       value: dgf
       type: parameter
     - name: FlowDcCandidates
-      value: '[313]'
+      value: '[30065]'
       type: deploy_candidate_image
     - name: Helm_Chart
-      value: '[314]'
+      value: '30063'
       type: deploy_candidate_chart
     - name: staticConfig
       value: default
