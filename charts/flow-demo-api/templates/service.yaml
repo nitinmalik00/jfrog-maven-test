@@ -3,15 +3,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ .Values.metadata.name }}
-  namespace: {{ .Values.metadata.namespace }}
+  name: {{ .Values.name }}
   annotations:
     fcp/app-id: "{{ .Values.appId }}"
-    elb.fcp/name: "vip-k8s-{{ .Values.metadata.namespace }}-{{ .Values.metadata.name }}-1"
+    elb.fcp/name: "vip-k8s-{{ .Release.Namespace }}-{{ .Values.name }}-1"
     elb.fcp/frontend-port: "80"
-    elb.fcp/backend-port: "{{ .Values.containerPort}}"
+    elb.fcp/backend-port: "{{ .Values.containerPort }}"
     elb.fcp/do-not-delete-vip: "{{ .Values.doNotDeleteVip }}"
-    elb.fcp/health-check-port: "{{ .Values.containerPort}}"
+    elb.fcp/health-check-port: "{{ .Values.containerPort }}"
     elb.fcp/health-check-path: "/greeting"
     elb.fcp/health-check-timeout: 1s
     elb.fcp/health-check-interval: 5s
@@ -19,9 +18,9 @@ metadata:
 spec:
   ports:
     - name: http
-      port: {{ .Values.containerPort}}
+      port: {{ .Values.containerPort }}
       protocol: TCP
-      targetPort: {{ .Values.containerPort}}
+      targetPort: {{ .Values.containerPort }}
   selector:
-    app: {{ .Values.metadata.name }}
+    app: {{ .Values.name }}
   type: LoadBalancer

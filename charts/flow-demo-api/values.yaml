@@ -4,12 +4,8 @@
 
 replicaCount: 1
 env: stage
-metadata:
-  name: flow-demo-backend
-  namespace: ci-cd-demo
-config:
-  workflow:
-    url: ""
+name: flow-demo-backend
+
 appId: flow-svc-stage
 group: flow-orc-stage-1
 
@@ -17,9 +13,9 @@ doNotDeleteVip: "true"
 
 image:
   k8HelmDemo:
-    registry: 10.24.6.41:80
-    repository: flow-demo-image
-    tag: v2
+    registry: container-registry.alm.fkcloud.in
+    repository: build-infra_tm-flow/flow-demo-image
+    tag: a613fa20002303990d3838ffbe0bb21dda5c8c75
     pullPolicy: Always
     bucket: ""
 containerPort: 8080
@@ -28,6 +24,10 @@ service:
   type: ClusterIP
   port: 80
 
+application:
+  config:
+    path: /config/application.properties
+    parameter: chart-test-test-1
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
   # choice for the user. This also increases chances charts run on environments with little
