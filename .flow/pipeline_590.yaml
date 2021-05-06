@@ -5,7 +5,7 @@ spec:
   id: 590
   event_type: merge
   trigger:
-    enable: true
+    enable: false
     source_branch: stage*
     commit_message: ProdDeploy*
     pr_title: \z..
