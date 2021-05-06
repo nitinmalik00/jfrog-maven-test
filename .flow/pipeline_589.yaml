@@ -25,6 +25,9 @@ spec:
     - name: Helm_Chart
       value: '[314]'
       type: deploy_candidate_chart
+    - name: staticConfig
+      value: default
+      type: parameter
     artifacts: []
 deployparams:
   env_type: preprod
