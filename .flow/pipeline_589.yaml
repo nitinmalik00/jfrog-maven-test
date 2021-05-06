@@ -1,0 +1,48 @@
+apiVersion: flow-v1
+kind: Pipeline
+spec:
+  pipeline_type: deploy
+  id: 589
+  event_type: merge
+  trigger:
+    enable: true
+    source_branch: stage*
+    commit_message: PreprodDeploy*
+    pr_title: ^(?!\s*$).+
+    modified_files: '*.yaml'
+    pr_comment: ""
+  arguments:
+    parameters:
+    - name: jira
+      value: dsdf
+      type: parameter
+    - name: pr
+      value: dgf
+      type: parameter
+    - name: FlowDcCandidates
+      value: '[313]'
+      type: deploy_candidate_image
+    - name: Helm_Chart
+      value: '[314]'
+      type: deploy_candidate_chart
+    artifacts: []
+deployparams:
+  env_type: preprod
+  env_name: Fk-Preprod
+  env_id: 35
+  cluster_context_id: 850
+  registry_id: 0
+  cluster_provider: K8
+  deploystrategy:
+    name: None
+    minreadyseconds: ""
+    progressdeadlineseconds: ""
+    prodservice: ""
+    secondaryservice: ""
+    maxunavailable: ""
+    maxsurge: ""
+    phases: []
+    previewreplicacount: ""
+    autopromotionenabled: ""
+    autopromotionseconds: ""
+    scaledowndelayseconds: ""
