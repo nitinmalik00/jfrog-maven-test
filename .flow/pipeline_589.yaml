@@ -30,23 +30,21 @@ spec:
       type: parameter
     artifacts: []
 deployparams:
-  env_type: preprod
-  env_name: Fk-Preprod
-  env_id: 35
+  env_type: feature
+  env_name: Flow-Demo
+  env_id: 60
   cluster_context_id: 853
   registry_id: 0
   cluster_provider: K8
   deploystrategy:
-    name: Canary
-    minreadyseconds: "10"
-    progressdeadlineseconds: "600"
+    name: None
+    minreadyseconds: ""
+    progressdeadlineseconds: ""
     prodservice: ""
     secondaryservice: ""
-    maxunavailable: 20%
-    maxsurge: "0"
-    phases:
-    - weight: "20"
-      pause: ""
+    maxunavailable: ""
+    maxsurge: ""
+    phases: []
     previewreplicacount: ""
     autopromotionenabled: ""
     autopromotionseconds: ""
