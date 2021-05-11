@@ -30,22 +30,10 @@ spec:
       type: parameter
     artifacts: []
 deployparams:
-  env_type: feature
-  env_name: Flow-Demo
-  env_id: 60
-  cluster_context_id: 853
+  env_type: ""
+  env_name: ""
+  env_id: 0
+  cluster_context_id: 0
   registry_id: 0
-  cluster_provider: K8
-  deploystrategy:
-    name: None
-    minreadyseconds: ""
-    progressdeadlineseconds: ""
-    prodservice: ""
-    secondaryservice: ""
-    maxunavailable: ""
-    maxsurge: ""
-    phases: []
-    previewreplicacount: ""
-    autopromotionenabled: ""
-    autopromotionseconds: ""
-    scaledowndelayseconds: ""
+  cluster_provider: ""
+  deploystrategy: null
