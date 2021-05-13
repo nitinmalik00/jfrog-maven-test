@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class GreetingController {
 
-	private static final String template = "Hello V30, %s!";
+	private static final String template = "Hello V31, %s!";
 
 	@Value("${config.parameter}")
 	private String configParam;
