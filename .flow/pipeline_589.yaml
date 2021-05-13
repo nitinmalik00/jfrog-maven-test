@@ -20,32 +20,20 @@ spec:
       value: dgf
       type: parameter
     - name: FlowDcCandidates
-      value: '[30065]'
+      value: '[313]'
       type: deploy_candidate_image
     - name: Helm_Chart
-      value: '30063'
+      value: '[314]'
       type: deploy_candidate_chart
     - name: staticConfig
       value: default
       type: parameter
     artifacts: []
 deployparams:
-  env_type: preprod
-  env_name: Fk-Preprod
-  env_id: 35
-  cluster_context_id: 853
+  env_type: ""
+  env_name: ""
+  env_id: 0
+  cluster_context_id: 0
   registry_id: 0
   cluster_provider: K8
-  deploystrategy:
-    name: None
-    minreadyseconds: ""
-    progressdeadlineseconds: ""
-    prodservice: ""
-    secondaryservice: ""
-    maxunavailable: ""
-    maxsurge: ""
-    phases: []
-    previewreplicacount: ""
-    autopromotionenabled: ""
-    autopromotionseconds: ""
-    scaledowndelayseconds: ""
+  deploystrategy: null
