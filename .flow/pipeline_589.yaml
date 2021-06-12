@@ -28,6 +28,9 @@ spec:
     - name: staticConfig
       value: default
       type: parameter
+    - name: configOnly
+      value: "false"
+      type: choice_parameter
     artifacts: []
 deployparams:
   env_type: ""
