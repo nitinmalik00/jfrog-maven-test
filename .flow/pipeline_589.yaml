@@ -23,7 +23,7 @@ spec:
       value: '[43129]'
       type: deploy_candidate_image
     - name: Helm_Chart
-      value: '[314]'
+      value: '40218'
       type: deploy_candidate_chart
     - name: staticConfig
       value: default
@@ -33,10 +33,10 @@ spec:
       type: choice_parameter
     artifacts: []
 deployparams:
-  env_type: ""
-  env_name: ""
-  env_id: 0
-  cluster_context_id: 0
+  env_type: "preprod"
+  env_name: "Fk-Preprod"
+  env_id: 35
+  cluster_context_id: 853
   registry_id: 0
   cluster_provider: K8
   deploystrategy: null
