@@ -11,6 +11,7 @@ spec:
     pr_title: ^(?!\s*$).+
     modified_files: '*.java'
     pr_comment: build*
+    pr_label: ""
   arguments:
     parameters:
     - name: jira
