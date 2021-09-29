@@ -1,0 +1,93 @@
+version: '2.0'
+services:
+  es01:
+    image: 10.47.2.76/elastic-search
+    container_name: es01
+    environment:
+      - node.name=es01
+      - cluster.name=es-docker-cluster
+      - discovery.seed_hosts=es02,es03
+      - cluster.initial_master_nodes=es01,es02,es03
+      - bootstrap.memory_lock=true
+#      - path.repo=/usr/share/elasticsearch/data/nodes
+#      - PATH_REPO=/usr/share/elasticsearch/data/nodes
+      - "ES_JAVA_OPTS=-Xms2g -Xmx2g"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - data07:/usr/share/elasticsearch/data
+    ports:
+      - 9200:9200
+    networks:
+      - elastic
+
+  es02:
+    image: 10.47.2.76/elastic-search
+    container_name: es02
+    environment:
+      - node.name=es02
+      - cluster.name=es-docker-cluster
+      - discovery.seed_hosts=es01,es03
+      - cluster.initial_master_nodes=es01,es02,es03
+      - bootstrap.memory_lock=true
+#      - path.repo=/usr/share/elasticsearch/data/nodes
+#      - PATH_REPO=/usr/share/elasticsearch/data/nodes
+      - "ES_JAVA_OPTS=-Xms2g -Xmx2g"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - data08:/usr/share/elasticsearch/data
+    ports:
+      - 9201:9201
+    networks:
+      - elastic
+
+  es03:
+    image: 10.47.2.76/elastic-search
+    container_name: es03
+    environment:
+      - node.name=es03
+      - cluster.name=es-docker-cluster
+      - discovery.seed_hosts=es01,es02
+      - cluster.initial_master_nodes=es01,es02,es03
+      - bootstrap.memory_lock=true
+#      - path.repo=/usr/share/elasticsearch/data/nodes
+#      - PATH_REPO=/usr/share/elasticsearch/data/nodes
+      - "ES_JAVA_OPTS=-Xms2g -Xmx2g"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - data09:/usr/share/elasticsearch/data
+    ports:
+      - 9202:9202
+    networks:
+      - elastic
+
+  kib01:
+    image: 10.47.2.76/docker.elastic.co/kibana/kibana:7.6.2
+    container_name: kib01
+    ports:
+      - 5601:5601
+    environment:
+      ELASTICSEARCH_URL: http://es01:9200
+      ELASTICSEARCH_HOSTS: http://es01:9200
+    networks:
+      - elastic
+
+volumes:
+  data07:
+    driver: local
+  data08:
+    driver: local
+  data09:
+    driver: local
+
+networks:
+  elastic:
+    driver: bridge
