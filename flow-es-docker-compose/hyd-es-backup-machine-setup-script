@@ -1,0 +1,55 @@
+#!/bin/bash
+echo "deb [trusted=yes] http://10.47.4.220/repos/infra-cli/8 /" > /etc/apt/sources.list.d/infra-cli-svc.list
+
+# install infra-cli (contains repo-service cli)
+sudo apt-get update
+sudo apt-get install --yes --allow-unauthenticated infra-cli
+
+reposervice --host 10.24.0.41 --port 8080 env --appkey buildinfra-db --name buildinfra-db-env > /etc/apt/sources.list.d/buildinfradb.list
+echo "deb http://10.19.1.12/debian stretch-updates main contrib non-free" >> /etc/apt/sources.list.d/stretch_all.list
+echo "deb http://10.19.1.12/debian stretch-backports main contrib non-free" >> /etc/apt/sources.list.d/stretch-backports.list
+echo "deb [trusted=yes] http://10.47.4.220/repos/alertz-stretch-nagios-prod/7 /" >> /etc/apt/sources.list.d/alertz.list
+
+sudo apt-get update
+sudo apt-get -f install --yes --allow-unauthenticated lvm2
+sudo apt-get -f install --yes --allow-unauthenticated adduser
+sudo apt-get -f install --yes --allow-unauthenticated net-tools
+sudo apt-get -f install --yes --allow-unauthenticated cosmos-collectd
+sudo apt-get -f install --yes --allow-unauthenticated cosmos-jmx
+sudo apt-get -f install --yes --allow-unauthenticated screen
+sudo apt-get -f install --yes --allow-unauthenticated parallel
+sudo apt-get -f install --yes --allow-unauthenticated apt-transport-https ca-certificates
+
+echo "team_name=flow-api" > /etc/default/nsca_wrapper
+
+sudo apt-get -f install --yes --allow-unauthenticated fk-nagios-common
+sudo apt-get -f install --yes --allow-unauthenticated fk-nsca-wrapper
+
+sed -i 's/nagios_1minLoadAvg_warning=1/nagios_1minLoadAvg_warning=7.2/' /usr/lib/nagios/fk-nagios-common/thresholds/system_alerts.conf
+sed -i 's/nagios_1minLoadAvg_critical=2/nagios_1minLoadAvg_critical=8/' /usr/lib/nagios/fk-nagios-common/thresholds/system_alerts.conf
+sed -i 's/nagios_5minLoadAvg_warning=1/nagios_5minLoadAvg_warning=5.6/' /usr/lib/nagios/fk-nagios-common/thresholds/system_alerts.conf
+sed -i 's/nagios_5minLoadAvg_critical=2/nagios_5minLoadAvg_critical=6.4/' /usr/lib/nagios/fk-nagios-common/thresholds/system_alerts.conf
+sed -i 's/nagios_15minLoadAvg_warning=3/nagios_15minLoadAvg_warning=4.0/' /usr/lib/nagios/fk-nagios-common/thresholds/system_alerts.conf
+sed -i 's/nagios_15minLoadAvg_critical=6/nagios_15minLoadAvg_critical=4.8/' /usr/lib/nagios/fk-nagios-common/thresholds/system_alerts.conf
+
+
+sudo /etc/init.d/lvm2 start
+sudo /sbin/pvcreate /dev/vdb
+sudo /sbin/pvcreate /dev/vdc
+sleep 1
+sudo /sbin/vgcreate extdisk128g /dev/vdb
+sudo /sbin/vgextend extdisk128g /dev/vdc
+
+sudo /sbin/lvcreate -n optdata -L 126g extdisk128g
+sleep 1
+sudo /sbin/lvdisplay
+sudo /sbin/mkfs.ext4 /dev/mapper/extdisk128g-optdata
+sleep 1
+sudo bash -c "echo '/dev/mapper/extdisk128g-optdata        /opt        ext4        acl,rw,noatime,nodelalloc        0        0' >> /etc/fstab"
+mount -a
+sudo rm -rf /opt/lost+found/
+
+echo "deb [trusted=yes] http://10.47.4.220/repos/nodejs14/1 /" >> /etc/apt/sources.list.d/nodejs.list
+sudo apt-get update
+sudo apt-get install curl software-properties-common
+sudo apt-get install nodejs
