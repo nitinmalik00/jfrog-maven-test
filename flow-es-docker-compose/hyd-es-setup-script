@@ -1,0 +1,50 @@
+#!/bin/bash
+#setup infra-cli and default srcs.list
+echo "deb [trusted=yes] http://10.47.4.220/repos/infra-cli/7 /" > /etc/apt/sources.list.d/infra-cli-svc.list
+
+apt-get update
+apt-get install --yes --allow-unauthenticated infra-cli
+reposervice --host 10.24.0.41 --port 8080 env --appkey build-infra-docker --name build-infra-docker > /etc/apt/sources.list.d/jenkins-docker.list
+apt-get update
+apt-get install --yes --allow-unauthenticated lvm2
+apt-get install --yes --allow-unauthenticated python-pip
+apt-get install --yes --allow-unauthenticated docker-ce
+apt-get install --yes --allow-unauthenticated cosmos-collectd
+apt-get install --yes --allow-unauthenticated screen
+apt-get install --yes --allow-unauthenticated parallel
+
+/etc/init.d/lvm2 start
+#Create the physical volumes
+/sbin/pvcreate /dev/vdb
+
+
+#Create the volume group
+/sbin/vgcreate dockerHome /dev/vdb
+
+#Create the Volume
+/sbin/lvcreate -n dockerHomeVol -L 250g dockerHome
+
+/sbin/lvdisplay
+
+/sbin/mkfs.ext4 /dev/mapper/dockerHome-dockerHomeVol
+
+#Mount the volume
+mkdir -p /var/lib/docker
+echo "/dev/mapper/dockerHome-dockerHomeVol  /var/lib/docker ext4  acl,rw,noatime  0       0" >> /etc/fstab
+
+mount -a
+
+echo '{"insecure-registries":["10.47.7.214","10.47.2.76"]}' > /etc/docker/daemon.json
+
+
+# Restart docker
+docker system prune
+systemctl stop docker
+systemctl start docker
+
+mkdir -p /var/lib/docker/elasticsearch
+apt-get install --yes --allow-unauthenticated adduser
+addgroup --gid 9999 elasticsearch
+adduser --home /var/lib/docker/elasticsearch --shell /bin/bash --uid 9999 --gid 9999 --disabled-password elasticsearch
+
+chown -R elasticsearch:elasticsearch /var/lib/docker/elasticsearch/
