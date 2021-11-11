@@ -6,11 +6,11 @@ spec:
   event_type: pull
   trigger:
     enable: true
-    source_branch: stage*
+    source_branch: .*
     commit_message: build*
     pr_title: ^(?!\s*$).+
     modified_files: '*.java'
-    pr_comment: build*
+    pr_comment: build
     pr_label: ""
   arguments:
     parameters:
