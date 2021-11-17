@@ -20,6 +20,9 @@ spec:
     - name: pr
       value: ""
       type: parameter
+    - name: skip_build
+      value: "yes"
+      type: choice_parameter
     artifacts: []
 deployparams:
   env_type: ""
