@@ -11,6 +11,7 @@ spec:
     pr_title: ^(?!\s*$).+
     modified_files: '*.yaml'
     pr_comment: ""
+    pr_label: ""
   arguments:
     parameters:
     - name: jira
@@ -20,10 +21,10 @@ spec:
       value: dgf
       type: parameter
     - name: FlowDcCandidates
-      value: '[40219]'
+      value: '[43129]'
       type: deploy_candidate_image
     - name: Helm_Chart
-      value: '34121'
+      value: '[314]'
       type: deploy_candidate_chart
     - name: staticConfig
       value: default
@@ -33,10 +34,10 @@ spec:
       type: choice_parameter
     artifacts: []
 deployparams:
-  env_type: "preprod"
-  env_name: "Fk-Preprod"
-  env_id: 35
-  cluster_context_id: 853
+  env_type: ""
+  env_name: ""
+  env_id: 0
+  cluster_context_id: 0
   registry_id: 0
   cluster_provider: K8
   deploystrategy: null
