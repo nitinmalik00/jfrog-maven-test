@@ -3,7 +3,7 @@ kind: Pipeline
 spec:
   pipeline_type: BUILD
   id: 1058
-  event_type: merge
+  event_type: pull
   trigger:
     enable: true
     source_branch: .*
