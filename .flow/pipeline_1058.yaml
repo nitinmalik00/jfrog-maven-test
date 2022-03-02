@@ -6,8 +6,8 @@ spec:
   event_type: merge
   trigger:
     enable: true
-    source_branch: ""
-    commit_message: ""
+    source_branch: .*
+    commit_message: FKCICD-2816
     pr_title: ""
     modified_files: ""
     pr_comment: ^.*build-test.*$
