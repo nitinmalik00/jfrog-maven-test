@@ -29,6 +29,9 @@ spec:
     - name: appID
       value: flow-svc-stage
       type: parameter
+    - name: skipDevDeploy
+      value: "yes"
+      type: choice_parameter
     artifacts: []
 deployparams:
   env_type: ""
