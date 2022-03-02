@@ -7,10 +7,10 @@ spec:
   trigger:
     enable: true
     source_branch: .*
-    commit_message: FKCICD-2816
+    commit_message: ""
     pr_title: ""
     modified_files: ""
-    pr_comment: ^.*build-test.*$
+    pr_comment: toleration
     pr_label: ""
   arguments:
     parameters:
