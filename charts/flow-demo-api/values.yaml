@@ -13,8 +13,8 @@ doNotDeleteVip: "true"
 
 image:
   k8HelmDemo:
-    registry: container-registry.alm.fkcloud.in
-    repository: build-infra_tm-flow/flow-demo-image
+    registry: jfrog.fkinternal.com
+    repository: build-infra_tm-flow/flow-demo
     tag: a613fa20002303990d3838ffbe0bb21dda5c8c75
     pullPolicy: Always
     bucket: ""
