@@ -43,7 +43,7 @@ spec:
           ports:
             - containerPort: {{ .Values.containerPort}}
           securityContext:
-            runAsUser: 0
+            runAsUser: 1000
           env:
             - name: SERVER_CONFIG
               value: {{ .Values.application.config.path }}
