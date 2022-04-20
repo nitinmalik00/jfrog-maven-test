@@ -5,12 +5,13 @@ spec:
   id: 418
   event_type: pull
   trigger:
-    enable: false
+    enable: true
     source_branch: stage*
     commit_message: Build*
     pr_title: \z..
     modified_files: '*.java'
     pr_comment: \z..
+    pr_label: ""
   arguments:
     parameters:
     - name: jira
