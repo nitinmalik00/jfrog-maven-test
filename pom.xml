@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.example</groupId>
 	<artifactId>rest-service</artifactId>
-	<version>0.0.3-SNAPSHOT</version>
+	<version>1.0.1-SNAPSHOT</version>
 	<name>rest-service</name>
 	<description>Demo project for Spring Boot</description>
 
@@ -104,13 +104,26 @@
 		<pluginRepository>
 			<id>fk-jfrog-snapshot</id>
 			<name>Flipkart-Artifactory</name>
-			<url>https://jfrog.fkinternal.com/artifactory/maven_virtual</url>
+			<url>https://jfrog.fkinternal.com/artifactory/test-mvn-27june.virtual</url>
 		</pluginRepository>
 		<pluginRepository>
 			<id>fk-jfrog-release</id>
 			<name>Flipkart-Artifactory</name>
-			<url>https://jfrog.fkinternal.com/artifactory/maven_virtual</url>
+			<url>https://jfrog.fkinternal.com/artifactory/test-mvn-27june.virtual</url>
 		</pluginRepository>
 	</pluginRepositories>
+
+	<distributionManagement>
+		<snapshotRepository>
+			<id>fk-jfrog-snapshot</id>
+			<name>libs-snapshot</name>
+			<url>https://jfrog.fkinternal.com/artifactory/test-mvn-27june.virtual</url>
+		</snapshotRepository>
+		<repository>
+			<id>fk-jfrog-release</id>
+			<name>libs-rel</name>
+			<url>https://jfrog.fkinternal.com/artifactory/test-mvn-27june.virtual</url>
+		</repository>
+	</distributionManagement>
 
 </project>
