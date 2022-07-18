@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.example</groupId>
 	<artifactId>rest-service</artifactId>
-	<version>1.0.1-SNAPSHOT</version>
+	<version>1.0.4</version>
 	<name>rest-service</name>
 	<description>Demo project for Spring Boot</description>
 
@@ -115,16 +115,19 @@
 
 	<distributionManagement>
 		<snapshotRepository>
-			<id>fk-jfrog-snapshot</id>
+			<id>fk-art-snapshot</id>
 			<name>libs-snapshot</name>
-			<url>https://jfrog.fkinternal.com/artifactory/test-mvn-deekshith</url>
+			<url>http://artifactory.fkinternal.com/artifactory/v1.0/artifacts/libs-snapshots-local</url>
 		</snapshotRepository>
 		<repository>
-			<id>fk-jfrog-release</id>
+<!--			<id>fk-jfrog-release</id>-->
+<!--			<name>libs-rel</name>-->
+<!--			<url>https://jfrog.fkinternal.com/artifactory/test-mvn-deekshith</url>-->
+			<id>fk-art-release</id>
 			<name>libs-rel</name>
-			<url>https://jfrog.fkinternal.com/artifactory/test-mvn-deekshith</url>
+			<url>http://artifactory.fkinternal.com/artifactory/v1.0/artifacts/libs-release-local</url>
 		</repository>
-		
+
 	</distributionManagement>
 
 </project>
