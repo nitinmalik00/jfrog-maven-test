@@ -1,14 +1,14 @@
-<settings>
-    <servers>
-        <server>
-            <id>fk-art-snapshot</id>
-            <username>nitin.malik</username>
-            <password>{pass}</password>
-        </server>
-        <server>
-            <id>fk-art-release</id>
-            <username>nitin.malik</username>
-            <password>{pass}</password>
-        </server>
-    </servers>
-</settings>
+<!--<settings>-->
+<!--    <servers>-->
+<!--        <server>-->
+<!--            <id>fk-art-snapshot</id>-->
+<!--            <username>nitin.malik</username>-->
+<!--            <password>{{pass}}</password>-->
+<!--        </server>-->
+<!--        <server>-->
+<!--            <id>fk-art-release</id>-->
+<!--            <username>nitin.malik</username>-->
+<!--            <password>{{pass}}</password>-->
+<!--        </server>-->
+<!--    </servers>-->
+<!--</settings>-->

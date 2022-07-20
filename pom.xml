@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.example</groupId>
 	<artifactId>rest-service</artifactId>
-	<version>1.0.4</version>
+	<version>1.0.2</version>
 	<name>rest-service</name>
 	<description>Demo project for Spring Boot</description>
 
@@ -113,21 +113,29 @@
 		</pluginRepository>
 	</pluginRepositories>
 
+<!--	<distributionManagement>-->
+<!--		<snapshotRepository>-->
+<!--			<id>fk-art-snapshot</id>-->
+<!--			<name>libs-snapshot</name>-->
+<!--			<url>http://artifactory.fkinternal.com/artifactory/v1.0/artifacts/libs-snapshots-local</url>-->
+<!--		</snapshotRepository>-->
+<!--		<repository>-->
+<!--			<id>fk-art-release</id>-->
+<!--			<name>libs-rel</name>-->
+<!--			<url>http://artifactory.fkinternal.com/artifactory/v1.0/artifacts/libs-release-local</url>-->
+<!--		</repository>-->
+<!--	</distributionManagement>-->
 	<distributionManagement>
 		<snapshotRepository>
-			<id>fk-art-snapshot</id>
+			<id>fk-jfrog-snapshot</id>
 			<name>libs-snapshot</name>
-			<url>http://artifactory.fkinternal.com/artifactory/v1.0/artifacts/libs-snapshots-local</url>
+			<url>https://jfrog.fkinternal.com/artifactory/maven_virtual</url>
 		</snapshotRepository>
 		<repository>
-<!--			<id>fk-jfrog-release</id>-->
-<!--			<name>libs-rel</name>-->
-<!--			<url>https://jfrog.fkinternal.com/artifactory/test-mvn-deekshith</url>-->
-			<id>fk-art-release</id>
+			<id>fk-jfrog-release</id>
 			<name>libs-rel</name>
-			<url>http://artifactory.fkinternal.com/artifactory/v1.0/artifacts/libs-release-local</url>
+			<url>https://jfrog.fkinternal.com/artifactory/maven_virtual</url>
 		</repository>
-
 	</distributionManagement>
 
 </project>
