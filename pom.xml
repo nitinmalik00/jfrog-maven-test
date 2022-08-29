@@ -97,12 +97,12 @@
 		<repository>
 			<id>fk-jfrog-snapshot</id>
 			<name>Flipkart-Artifactory</name>
-			<url>https://jfrog.fkinternal.com/artifactory/maven_virtual</url>
+			<url>https://jfrog.fkinternal.com/artifactory/maven_remote</url>
 		</repository>
 		<repository>
 			<id>fk-jfrog-release</id>
 			<name>Flipkart-Artifactory</name>
-			<url>https://jfrog.fkinternal.com/artifactory/maven_virtual</url>
+			<url>https://jfrog.fkinternal.com/artifactory/maven_remote</url>
 		</repository>
 	</repositories>
 
@@ -110,12 +110,12 @@
 		<pluginRepository>
 			<id>fk-jfrog-snapshot</id>
 			<name>Flipkart-Artifactory</name>
-			<url>https://jfrog.fkinternal.com/artifactory/maven_virtual</url>
+			<url>https://jfrog.fkinternal.com/artifactory/maven_remote</url>
 		</pluginRepository>
 		<pluginRepository>
 			<id>fk-jfrog-release</id>
 			<name>Flipkart-Artifactory</name>
-			<url>https://jfrog.fkinternal.com/artifactory/maven_virtual</url>
+			<url>https://jfrog.fkinternal.com/artifactory/maven_remote</url>
 		</pluginRepository>
 	</pluginRepositories>
 
