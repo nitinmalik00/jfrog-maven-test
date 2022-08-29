@@ -8,7 +8,7 @@
 		<version>2.3.2.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>nitin-test</groupId>
+	<groupId>jfrog-test</groupId>
 	<artifactId>rest-service</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<name>rest-service</name>
