@@ -17,6 +17,11 @@
       <option name="url" value="https://repo1.maven.org/maven2" />
     </remote-repository>
     <remote-repository>
+      <option name="id" value="fk-jfrog-snapshot" />
+      <option name="name" value="Flipkart-Artifactory" />
+      <option name="url" value="https://jfrog.fkinternal.com/artifactory/maven_remote" />
+    </remote-repository>
+    <remote-repository>
       <option name="id" value="jboss.community" />
       <option name="name" value="JBoss Community repository" />
       <option name="url" value="https://repository.jboss.org/nexus/content/repositories/public/" />
@@ -30,6 +35,11 @@
       <option name="id" value="fk-art-release" />
       <option name="name" value="Flipkart-Artifactory" />
       <option name="url" value="http://artifactory.fkinternal.com/artifactory/v1.0/artifacts/libs-release-local" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="fk-jfrog-release" />
+      <option name="name" value="Flipkart-Artifactory" />
+      <option name="url" value="https://jfrog.fkinternal.com/artifactory/maven_remote" />
     </remote-repository>
     <remote-repository>
       <option name="id" value="fk-jfrog-snapshot" />
